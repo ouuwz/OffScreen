@@ -11,7 +11,6 @@ MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![AI](https://img.shields.io/badge/AI-local%20inference-8bcf68)](#how-the-ai-works)
 
 [GitHub](https://github.com/ouuwz) · [Telegram](https://t.me/ouuwz)
-:::
 
 ------------------------------------------------------------------------
 
