@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+prototype-streamlit/nature_journal.json
+prototype-streamlit/.streamlit/secrets.toml
+
+# Node / Vite
+web/node_modules/
+web/dist/
+web/.vite/
+
+# Flutter / Dart
+android/.dart_tool/
+android/.flutter-plugins
+android/.flutter-plugins-dependencies
+android/build/
+android/.packages
+android/.pub-cache/
+android/.idea/
+android/android/local.properties
+android/android/key.properties
+android/android/app/*.jks
+android/android/app/*.keystore
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/

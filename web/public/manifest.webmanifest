@@ -1,0 +1,11 @@
+{
+  "name": "Offscreen — Nature Companion",
+  "short_name": "Offscreen",
+  "description": "An offline-first nature companion powered by local AI.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#101711",
+  "theme_color": "#101711",
+  "icons": [{"src":"./leaf.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}

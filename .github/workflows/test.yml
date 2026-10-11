@@ -1,0 +1,51 @@
+name: Test Offscreen
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Generate Android platform files
+        working-directory: android
+        run: flutter create --platforms=android --org com.offscreen.app .
+      - name: Configure Android
+        working-directory: android
+        run: python3 tool/prepare_android.py
+      - name: Install Flutter packages
+        working-directory: android
+        run: flutter pub get
+      - name: Analyze
+        working-directory: android
+        run: flutter analyze
+      - name: Widget tests
+        working-directory: android
+        run: flutter test
+  web:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install
+      - run: npm run build

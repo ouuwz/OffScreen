@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101711" />
+  <meta name="description" content="An offline-first nature companion. Make a small mission, put your phone away, and notice the world around you." />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./leaf.svg" type="image/svg+xml" />
+  <title>Offscreen — a little more noticing</title>
+</head>
+<body>
+  <div id="app">
+    <header class="topbar"><a class="brand" href="#home" aria-label="Offscreen home"><span class="brand-icon">✳</span><span>offscreen<span class="period">.</span></span></a><span id="ai-pill" class="status-pill"><i></i> Local AI not loaded</span></header>
+    <main>
+      <section id="home-view" class="view active">
+        <div class="hero"><div class="eyebrow">A SMALL INVITATION TO GO OUTSIDE</div><h1>A little less scrolling.<br><em>A little more noticing.</em></h1><p>Get a tiny outdoor mission, put your phone away, and come back with something you noticed.</p><div class="hero-tags"><span>◉ On-device AI</span><span>↗ No account</span><span>⌁ Private journal</span></div></div>
+        <div class="section-heading"><div><span class="eyebrow">YOUR NEXT BREAK</span><h2>Plan a little outside time</h2></div><span class="tiny-label">Takes 20 seconds</span></div>
+        <div class="planner card">
+          <label>Where are you going?<select id="place"><option>College campus</option><option>Park or garden</option><option>My neighbourhood</option><option>Balcony or outdoor area</option></select></label>
+          <div class="two-col"><label>Time you have<select id="duration"><option value="10">10 minutes</option><option value="20">20 minutes</option><option value="30">30 minutes</option></select></label><label>Your energy<select id="energy"><option>Low — keep it gentle</option><option selected>Okay — a little walking</option><option>High — I want to explore</option></select></label></div>
+          <label>Going with<select id="company"><option>By myself</option><option>With a friend</option><option>With family</option></select></label>
+          <label>What do you want to notice?</label><div class="focus-grid" id="focus-grid"><button class="focus selected" data-focus="A mix of everything">✳ <span>Everything</span></button><button class="focus" data-focus="Plants and leaves">❋ <span>Plants</span></button><button class="focus" data-focus="Birds and natural sounds">♫ <span>Bird sounds</span></button><button class="focus" data-focus="Clouds and the sky">☼ <span>Sky</span></button><button class="focus" data-focus="Small details I usually miss">⌕ <span>Small details</span></button></div>
+          <button id="make-mission" class="primary full">Give me a mission <span>↗</span></button><p class="microcopy">Your choices stay on this device.</p>
+        </div>
+        <div id="mission-area" class="mission-area hidden"></div>
+      </section>
+      <section id="journal-view" class="view"><div class="page-intro"><span class="eyebrow">YOUR FIELD NOTES</span><h1>Nature journal<span class="period">.</span></h1><p>A record of things you noticed, not things you posted.</p></div><div id="journal-list"></div><div class="export-row"><button id="export-journal" class="secondary">Export journal JSON</button><label class="secondary import-label">Import journal JSON<input type="file" id="import-journal" accept="application/json" hidden></label></div></section>
+      <section id="progress-view" class="view"><div class="page-intro"><span class="eyebrow">LITTLE BY LITTLE</span><h1>Your progress<span class="period">.</span></h1><p>Progress is noticing more, not optimising every minute.</p></div><div id="stats-grid" class="stats-grid"></div><div class="card chart-card"><div class="card-title"><h2>Last seven days</h2><span class="tiny-label">Minutes outside</span></div><div id="week-chart" class="week-chart"></div></div><div class="card"><h2>Your streak</h2><p id="streak-note" class="muted"></p></div></section>
+      <section id="settings-view" class="view"><div class="page-intro"><span class="eyebrow">YOUR DEVICE, YOUR DATA</span><h1>Settings<span class="period">.</span></h1><p>Offscreen is designed to work without an account or cloud inference.</p></div><div class="card settings-card"><div class="setting-line"><div><h2>Browser AI</h2><p id="model-status" class="muted">Not loaded. WebGPU is required for local inference.</p></div><span class="setting-icon">◉</span></div><div class="progress-track"><div id="model-progress" class="progress-fill"></div></div><button id="load-model" class="primary full">Download and load local AI</button><p class="microcopy">First download may be large and needs internet. Your browser must support WebGPU. Model files are cached by the runtime when supported.</p><div id="model-log" class="model-log" aria-live="polite"></div></div><div class="card settings-card"><h2>Privacy</h2><ul class="privacy-list"><li>Journal entries stay in this browser's local storage.</li><li>AI inference runs in your browser when the model is loaded.</li><li>No GPS, account, analytics, or cloud AI API is used by this app.</li><li>Clearing browser data may delete your journal and cached model.</li></ul></div><div class="card settings-card"><h2>About Offscreen</h2><p class="muted">A small open-AI project for getting people out into the real world.</p><p class="credit">Built by <a href="https://github.com/ouuwz" target="_blank" rel="noreferrer">@ouuwz on GitHub</a> · <a href="https://t.me/ouuwz" target="_blank" rel="noreferrer">Telegram</a></p></div></section>
+    </main>
+    <nav class="bottom-nav" aria-label="Main navigation"><button class="nav-item active" data-view="home"><span>⌂</span><small>Mission</small></button><button class="nav-item" data-view="journal"><span>▤</span><small>Journal</small></button><button class="nav-item" data-view="progress"><span>▥</span><small>Progress</small></button><button class="nav-item" data-view="settings"><span>⚙</span><small>Settings</small></button></nav>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

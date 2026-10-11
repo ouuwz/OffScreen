@@ -1,0 +1,9 @@
+TOUCHGRASS MOBILE - START HERE
+
+1) Extract this ZIP.
+2) Read README.md.
+3) Recommended for your older laptop: use the included GitHub Actions workflow to build the APK on GitHub's runner.
+4) The APK does NOT include the AI model weights. Download a small Q4 GGUF model separately, install the APK, then Settings > Choose .gguf model > Load model.
+5) After the model is loaded once, enable Airplane mode and test mission generation.
+
+Do not upload personal journal data or private model files to a public repository. This project ZIP contains source only.
