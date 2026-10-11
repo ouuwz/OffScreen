@@ -1,4 +1,3 @@
-::: {align="center"}
 # Offscreen
 
 ### A little more outside.
